@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "description": "react-native-wechat-work",
   "private": true,
+  "main": "lib/index.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/obzone/react-native-amap3d.git"
+    "url": "https://github.com/xinpureZhu/react-native-wechat-work.git"
   },
   "license": "MIT",
   "peerDependencies": {

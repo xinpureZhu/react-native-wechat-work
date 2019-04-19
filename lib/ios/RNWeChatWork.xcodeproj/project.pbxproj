@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B3E7B58A1CC2AC0600A0062D /* RNWeChatWork.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNWeChatWork.m */; };
+		C722A03F226B7E1500482A5F /* libWXWorkApi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C722A03E226B7E1500482A5F /* libWXWorkApi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,8 +25,10 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNWeChatWork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNWeChatWork.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		42A804EA2269F7D4007351FB /* WXWorkApi */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WXWorkApi; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNWeChatWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNWeChatWork.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNWeChatWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNWeChatWork.m; sourceTree = "<group>"; };
+		C722A03E226B7E1500482A5F /* libWXWorkApi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWXWorkApi.a; path = WXWorkApi/libWXWorkApi.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C722A03F226B7E1500482A5F /* libWXWorkApi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,13 +51,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		58B511D21A9E6C8500147676 = {
+		42A804832269D55B007351FB /* RNWeChatWork */ = {
 			isa = PBXGroup;
 			children = (
 				B3E7B5881CC2AC0600A0062D /* RNWeChatWork.h */,
 				B3E7B5891CC2AC0600A0062D /* RNWeChatWork.m */,
-				134814211AA4EA7D00B7C361 /* Products */,
 			);
+			path = RNWeChatWork;
+			sourceTree = "<group>";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				42A804EA2269F7D4007351FB /* WXWorkApi */,
+				42A804832269D55B007351FB /* RNWeChatWork */,
+				134814211AA4EA7D00B7C361 /* Products */,
+				C722A03D226B7E1500482A5F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C722A03D226B7E1500482A5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C722A03E226B7E1500482A5F /* libWXWorkApi.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +117,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -139,6 +162,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -156,6 +180,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WXWorkApi";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -183,6 +208,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -193,6 +219,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/WXWorkApi";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -204,12 +231,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-				"$(inherited)",
+					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(PROJECT_DIR)/WXWorkApi",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/WXWorkApi",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNWeChatWork;
 				SKIP_INSTALL = YES;
@@ -224,8 +256,13 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(PROJECT_DIR)/WXWorkApi",
 				);
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/WXWorkApi",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNWeChatWork;
 				SKIP_INSTALL = YES;

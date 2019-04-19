@@ -87,7 +87,7 @@ SPEC CHECKSUMS:
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   React: 90adac468c7b72bf1fa6c64bf230650f851a8388
-  react-native-wechat-work: 1b23c9d43ec780a98eb26c17a942f35f7d5edbd3
+  react-native-wechat-work: aca17f5c62526fdfa14be05811177c6bfedb9ca9
   yoga: 2e571f113e8cbeb0eb752aeebc86c1bfe7a8200c
 
 PODFILE CHECKSUM: 2059c584ac0d942a86363dde0614cdaaa01f13dc
