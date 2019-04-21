@@ -4,3 +4,10 @@ node_modules
 
 *.js
 app.json
+
+.buckconfig
+.flowconfig
+.gitattributes
+.watchmanconfig
+
+yarn.lock
