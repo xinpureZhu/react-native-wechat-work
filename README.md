@@ -78,3 +78,8 @@ On iOS 9+, add wxwork and wxworklocal into LSApplicationQueriesSchemes in Target
   return [RCTLinkingManager application:application openURL:url options:options];
 }
 ```
+
+You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. file '/Project/react-native-wechat-work/lib/ios/libWXWorkApi.a' for architecture arm64
+
+Fixed: This is used for appthining. If you dont want to update the sdk you cam turn off bitcode in your project.
+Go to your target-> Settings and serch for bitcode. Than turn the option to NO. By default its activated
