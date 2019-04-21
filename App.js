@@ -17,7 +17,6 @@ const instructions = Platform.select({
 });
 
 import * as WeChatWork from 'react-native-wechat-work'
- console.log('WeChatWorkfdasfdsaf = ', WeChatWork)
 
 type Props = {};
 export default class App extends Component<Props> {

@@ -1,5 +1,5 @@
 
-package com.xinpure.WechatWork;
+package com.xinpure.wechatwork;
 
 import java.util.Arrays;
 import java.util.Collections;

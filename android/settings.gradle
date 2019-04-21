@@ -1,3 +1,6 @@
 rootProject.name = 'WeChatWorkExample'
 
+include ':react-native-wechat-work'
+project(':react-native-wechat-work').projectDir = new File(rootProject.projectDir, '../lib/android')
+
 include ':app'
