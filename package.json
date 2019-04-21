@@ -2,7 +2,6 @@
   "name": "react-native-wechat-work",
   "version": "0.0.1",
   "description": "react-native-wechat-work",
-  "private": true,
   "main": "lib/index.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
