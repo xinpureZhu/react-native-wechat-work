@@ -1,6 +1,6 @@
 {
   "name": "react-native-wechat-work",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "react-native 企业微信登录, 支持 iOS + Android",
   "main": "lib/index.js",
   "scripts": {
