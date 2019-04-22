@@ -1,6 +1,10 @@
 
 # react-native-wechat-work
 
+## Reference
+
+[react-native-wechat](https://github.com/yorkie/react-native-wechat)
+
 ## Getting started
 
 `$ npm install react-native-wechat-work --save`
@@ -22,7 +26,7 @@
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.xinpure.WechatWork.RNWeChatWorkPackage;` to the imports at the top of the file
+  - Add `import com.xinpure.wechatwork.RNWeChatWorkPackage;` to the imports at the top of the file
   - Add `new RNWeChatWorkPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
@@ -53,7 +57,7 @@ cd ios
 pod install
 ```
 
-
+### iOS
 由于iOS系统的限制，在iOS9及以上系统检测企业微信是否安装，需要将企业微信的scheme"wxwork"(云端版本)及"wxworklocal"(本地部署版本)添加到工程的Info.plist中的LSApplicationQueriesSchemes白名单里，否则此方法总是会返回NO。
 
 On iOS 9+, add wxwork and wxworklocal into LSApplicationQueriesSchemes in Targets > info > Custom iOS Target Properties. Or edit Info.plist then add:
@@ -83,3 +87,21 @@ You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain 
 
 Fixed: This is used for appthining. If you dont want to update the sdk you cam turn off bitcode in your project.
 Go to your target-> Settings and serch for bitcode. Than turn the option to NO. By default its activated
+
+### Android
+AndroidManifest.xml
+```
+<intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+
+    <data android:scheme="your scheme" />
+</intent-filter>
+```
+
+
+### 企业微信后台
+
+在手机安装使用 Gen_Signature_Android.apk 生成签名后，将签名添加到后台管理界面

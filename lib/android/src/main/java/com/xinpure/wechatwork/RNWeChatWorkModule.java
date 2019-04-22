@@ -32,9 +32,9 @@ public class RNWeChatWorkModule extends ReactContextBaseJavaModule {
   private DeviceEventManagerModule.RCTDeviceEventEmitter eventEmitter;
 
   private IWWAPI iwwapi;
-  private String APPID = "WW5ce2489834f4ac82";
-  private String AGENTID = "1000016";
-  private String SCHEMA = "WW5ce2489834f4ac82";
+  private String APPID = "";
+  private String AGENTID = "";
+  private String SCHEMA = "";
 
   private final static String NOT_REGISTERED = "registerApp required.";
   private final static String INVOKE_FAILED = "WeChat API invoke returns false.";
@@ -57,6 +57,9 @@ public class RNWeChatWorkModule extends ReactContextBaseJavaModule {
     AGENTID = agentId;
 
     iwwapi = WWAPIFactory.createWWAPI(this.reactContext);
+
+    eventEmitter = reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
+
     callback.invoke(null, iwwapi.registerApp(this.SCHEMA));
   }
 
@@ -106,9 +109,12 @@ public class RNWeChatWorkModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void SSOAuth(String state, Callback callback) {
+  public void SSOAuth(String state) {
+    this.SSO(state);
+  }
+
+  public void SSO(String state) {
     if (iwwapi == null) {
-      callback.invoke(NOT_REGISTERED);
       return;
     }
     final WWAuthMessage.Req req = new WWAuthMessage.Req();
@@ -124,7 +130,6 @@ public class RNWeChatWorkModule extends ReactContextBaseJavaModule {
 
         if (resp instanceof WWAuthMessage.Resp) {
           WWAuthMessage.Resp rsp = (WWAuthMessage.Resp) resp;
-          Log.d("wechatwork = ", "rsp = " + rsp.errCode);
 
           map.putInt("errCode", rsp.errCode);
           map.putString("code", rsp.code);
@@ -136,14 +141,13 @@ public class RNWeChatWorkModule extends ReactContextBaseJavaModule {
           }else if (rsp.errCode == WWAuthMessage.ERR_FAIL) {
             map.putString("errStr", "SSOAuth Failed");
           } else if (rsp.errCode == WWAuthMessage.ERR_OK) {
-            map.putString("errStr", "SSOAuth Error");
+            map.putString("errStr", "SSOAuth OK");
           }
         }
 
         eventEmitter.emit(WeChatWorkEventName, map);
       }
     });
-
   }
 
 }
