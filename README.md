@@ -31,7 +31,7 @@
 2. Append the following lines to `android/settings.gradle`:
   	```
   	include ':react-native-wechat-work'
-  	project(':react-native-wechat-work').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-wechat-work/android')
+  	project(':react-native-wechat-work').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-wechat-work/lib/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
@@ -88,20 +88,7 @@ You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain 
 Fixed: This is used for appthining. If you dont want to update the sdk you cam turn off bitcode in your project.
 Go to your target-> Settings and serch for bitcode. Than turn the option to NO. By default its activated
 
-### Android
-AndroidManifest.xml
-```
-<intent-filter>
-    <action android:name="android.intent.action.VIEW" />
-
-    <category android:name="android.intent.category.DEFAULT" />
-    <category android:name="android.intent.category.BROWSABLE" />
-
-    <data android:scheme="your scheme" />
-</intent-filter>
-```
-
 
 ### 企业微信后台
 
-在手机安装使用 Gen_Signature_Android.apk 生成签名后，将签名添加到后台管理界面
+在手机安装使用 [Gen_Signature_Android.apk](http://dldir1.qq.com/qqcontacts/Gen_Signature_Android.apk) 生成签名后，将签名添加到后台管理界面
