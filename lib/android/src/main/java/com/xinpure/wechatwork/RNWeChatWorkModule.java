@@ -22,6 +22,7 @@ import com.tencent.wework.api.model.WWMediaFile;
 import com.tencent.wework.api.model.WWMediaImage;
 import com.tencent.wework.api.model.WWMediaLink;
 import com.tencent.wework.api.model.WWMediaMergedConvs;
+import com.tencent.wework.api.model.WWMediaMessage;
 import com.tencent.wework.api.model.WWMediaText;
 import com.tencent.wework.api.model.WWMediaVideo;
 
@@ -111,6 +112,20 @@ public class RNWeChatWorkModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void SSOAuth(String state) {
     this.SSO(state);
+  }
+
+  @ReactMethod
+  public void shareLinkAttachment(String title, String summary, String url) {
+    if (iwwapi == null) {
+      return;
+    }
+    WWMediaLink link = new WWMediaLink();
+    link.description = summary;
+    link.webpageUrl = url;
+    link.title = title;
+    link.appId = APPID;
+    link.agentId = AGENTID;
+    iwwapi.sendMessage(link);
   }
 
   public void SSO(String state) {
