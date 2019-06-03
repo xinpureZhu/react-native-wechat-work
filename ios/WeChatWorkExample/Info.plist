@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.xinpure.wechat.work</string>
+			<string>com.xinpure.wechatwork</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wwauthf89009662322d93e000033</string>
+				<string>1222</string>
 			</array>
 		</dict>
 	</array>

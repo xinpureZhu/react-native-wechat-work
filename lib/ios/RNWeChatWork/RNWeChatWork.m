@@ -93,6 +93,20 @@ RCT_EXPORT_METHOD(SSOAuth:(NSString *)state)
     return true;
 }
 
+RCT_EXPORT_METHOD(shareLinkAttachment:(NSString *)title :(NSString *)summary :(NSString *)url) {
+    WWKSendMessageReq *req = [[WWKSendMessageReq alloc] init];
+    WWKMessageLinkAttachment *attachment = [[WWKMessageLinkAttachment alloc] init];
+    // 示例用链接，请填写你想分享的实际链接的标题、介绍、图标和URL
+    attachment.title = title;
+    if (summary) {
+        attachment.summary = summary;
+    }
+    attachment.url = url;
+    attachment.icon = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"icon" ofType:@"jpg"]];
+    req.attachment = attachment;
+    [WWKApi sendReq:req];
+}
+
 #pragma mark - wx callback
 
 -(void) onReq:(WWKBaseReq *)req {
@@ -113,6 +127,19 @@ RCT_EXPORT_METHOD(SSOAuth:(NSString *)state)
 
         NSLog(@"body = %@", [body description]);
 
+        [self sendEventWithName:WeChatWorkEventName body:body];
+    } else
+    /// 分享回调
+    if ([resp isKindOfClass:[WWKSendMessageResp class]]) {
+        WWKSendMessageResp *r = (WWKSendMessageResp *)resp;
+        
+        NSMutableDictionary *body = [NSMutableDictionary new];
+        body[@"errCode"] = @(r.errCode);
+        body[@"errStr"] = r.errStr;
+        body[@"type"] = @"Share.Resp";
+        
+        NSLog(@"body = %@", [body description]);
+        
         [self sendEventWithName:WeChatWorkEventName body:body];
     }
 }

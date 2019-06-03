@@ -16,10 +16,9 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-import * as WeChatWork from 'react-native-wechat-work'
+import * as WeChatWork from './lib/index'
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,8 +55,15 @@ export default class App extends Component<Props> {
         <TouchableOpacity onPress={this.auth}>
           <Text>企业微信登录</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={this.shareLinkArrachment} >
+          <Text style={{height: 40}} >微信分享</Text>
+        </TouchableOpacity>
       </View>
     );
+  }
+
+  async shareLinkArrachment() {
+    const aa = await WeChatWork.shareLinkAttachment('titleeeee', 'summaryyy', "http://cdn2.mdxz.pagoda.com.cn/邵业程_广东省深圳市宝安区石岩街道塘头村_20190603031357.pdf")
   }
 
   async auth() {

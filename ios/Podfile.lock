@@ -8,7 +8,7 @@ PODS:
   - glog (0.3.5)
   - React (0.59.5):
     - React/Core (= 0.59.5)
-  - react-native-wechat-work (0.0.1):
+  - react-native-wechat-work (0.0.3):
     - React
   - React/Core (0.59.5):
     - yoga (= 0.59.5.React)
@@ -87,7 +87,7 @@ SPEC CHECKSUMS:
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   React: 90adac468c7b72bf1fa6c64bf230650f851a8388
-  react-native-wechat-work: aca17f5c62526fdfa14be05811177c6bfedb9ca9
+  react-native-wechat-work: 6420cd2bf6130d568e9f69ced92bdab241f21e87
   yoga: 2e571f113e8cbeb0eb752aeebc86c1bfe7a8200c
 
 PODFILE CHECKSUM: 2059c584ac0d942a86363dde0614cdaaa01f13dc
